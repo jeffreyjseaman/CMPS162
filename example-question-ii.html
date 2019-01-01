@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example Question II</title>
+<script>
+function isPrime(num) {
+  for (var i = 2; i < num; i++) {
+    // check if num is divisible by i
+    if (num % i === 0) {
+      // it is divisible by i, so it is not a prime
+      return false;
+    }
+  }
+  // num is not divisible by any number, so it is prime
+  return true;
+}
+alert(isPrime(10)); // => false
+alert(isPrime(13)); // => true
+</script>
+<body>
+</body>
+</html>

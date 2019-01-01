@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Module 10</title>
+<script>
+// javascript goes here
+function test() {
+  //var par = document.getElementById("paragraph");
+  //par.innerHTML = "<em>New paragraph text!</em>";
+  //document.getElementsByTagName("p");
+  var body = document.body;
+  //alert(body.childNodes.length);
+  // count the number of dom elements in the body
+  // nodeType === 1 => element
+  // nodeType === 3 => text
+  for (var i = 0; i < body.childNodes.length; i++) {
+    if (body.childNodes[i].nodeType === 1 &&
+        body.childNodes[i].nodeName === "P") {
+      body.childNodes[i].innerHTML = "<b>" + body.childNodes[i].innerHTML + "</b>";
+    }
+  }
+  //alert(counter);
+  //alert(body.childNodes[0].nodeName);
+  var target = document.getElementById("paragraph");
+
+  // change the text of the paragraph
+  // to bold using get/setAttribute
+  // tip: font-weight:bold;
+
+  // naive/bad solution
+  //target.setAttribute("style", "font-size:15px;font-weight:bold;");
+
+  // good solution
+  var current = target.getAttribute("style");
+  current += "font-weight:bold;";
+  target.setAttribute("style", current);
+
+  // iterate through attributes of paragraph
+  for (var i = 0; i < target.attributes.length; i++) {
+    //alert(target.attributes[i].nodeValue);
+  }
+  target.setAttribute("onclick", "alert('hi')");
+
+  var newp = document.createElement("p");
+  newp.setAttribute("style", "color:red;");
+  var txtnode = document.createTextNode("This is the new paragraph!");
+  newp.appendChild(txtnode);
+  body.insertBefore(newp, body.firstChild.nextSibling.nextSibling);
+  body.removeChild(newp);
+}
+</script>
+</head>
+<body>
+  <p id="paragraph" style="font-size:50px;text-decoration:underline;">This is a paragraph.</p>
+  <a href="javascript:void(0);" onclick="test();">
+    Click Me
+  </a>
+  <div id="div3">
+    <p>paragraph 1</p>
+    <p>paragraph 2</p>
+    <b>this is bold</b>
+  </div>
+  <p>This is the last paragraph.</p>
+</body>
+</html>

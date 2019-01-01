@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+<script>
+
+function createRandomNumbers(n) {
+  var numbers = [];
+  for (var i = 0; i < n; i++) {
+    numbers.push(Math.random());
+  }
+  return numbers;
+}
+alert(createRandomNumbers(10));
+
+function makeArray(x, y, z) {
+  return [x, y, z, z];
+}
+alert(makeArray(10, 3.2, "hello"));
+
+function getLargest(x, y) {
+  if (x > y) {
+    return x;
+  }
+  else {
+    return y;
+  }
+}
+alert(getLargest(10, 3)); // 10
+alert(getLargest(2, 5)); // 5
+
+var tmp = getLargest(100, 1000);
+alert(tmp);
+
+</script>
+</head>
+
+<body>
+Test page!
+</body>
+
+</html>

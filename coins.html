@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Coins</title>
+<script>
+// we are going to create Coin objects that keep track
+// of coins
+// property 1: state (the default is "heads", but it
+//             could become "tails" after flipping)
+// method 1: flip() (this assigns heads or tails with
+//           a 50% chance each)
+// method 2: toString() (this returns the current state
+//           of the object as a string)
+
+// constructor
+function Coin() {
+  this.state = "heads";
+}
+// methods
+Coin.prototype.toString = function() {
+  return "The coin is " + this.state + "!";
+};
+Coin.prototype.flip = function() {
+  if (Math.random() < 0.5) {
+    this.state = "heads";
+  }
+  else {
+    this.state = "tails";
+  }
+};
+
+// this is how we use it
+var coin = new Coin();
+coin.flip();
+alert(coin.toString());
+
+// later on we will collect them into a CoinCollection object
+function CoinCollection(n) {
+  this.coins = [];
+  for (var i = 0; i < n; i++) {
+    this.addCoin();
+  }
+}
+// method 1: addCoin() which adds a new coin to coins
+CoinCollection.prototype.addCoin = function() {
+  this.coins.push(new Coin());
+};
+// method 2: flip() which flips all coins in the array
+CoinCollection.prototype.flip = function() {
+  for (var i = 0; i < this.coins.length; i++) {
+    this.coins[i].flip();
+  }
+};
+// method 3: countHeads() which returns the number of heads
+CoinCollection.prototype.countHeads = function() {
+  var numHeads = 0;
+  for (var i = 0; i < this.coins.length; i++) {
+    if (this.coins[i].state === "heads") {
+      numHeads++;
+    }
+  }
+  return numHeads;
+};
+
+// this is how we use it
+var coinCollection = new CoinCollection(100);
+coinCollection.flip();
+alert(coinCollection.countHeads());
+
+</script>
+<body>
+</body>
+</html>

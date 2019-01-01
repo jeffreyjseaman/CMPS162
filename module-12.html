@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Module 12</title>
+<script>
+//alert(window.location.href);
+//alert(window.location.hostname);
+//alert(window.location.pathname);
+//alert(window.location.hash);
+function moveOut() {
+  var nextpage = prompt("Tell me where you want to go: ");
+  if (nextpage.toLowerCase() === "it") {
+    window.location.replace("http://it.pointpark.edu/");
+  }
+  else if (nextpage.toLowerCase() === "pointpark") {
+    window.location.replace("http://www.pointpark.edu/");
+  }
+  else {
+    //window.location.replace("http://mvoortman.it.pointpark.edu/module-13.html");
+    window.location.reload(true);
+  }
+  //window.location.href = window.location.hostname + "/module-13.html";
+}
+
+function goNext() {
+  history.go(2);
+}
+
+function goPrev() {
+  history.go(-2);
+}
+
+function openWindow() {
+  checkForPopBlocker();
+  var monkeyWindow = window.open("https://www.google.com/",
+                                 "win1",
+                                 "width=420,height=380,left=200,top=100");
+
+  //monkeyWindow.document.write("<h1>Hello World!</h1>");
+  //monkeyWindow.location.href = "https://www.google.com/";
+  //setTimeout(function() {
+  //  monkeyWindow.close();
+  //}, 5000);
+}
+
+function checkForPopBlocker() {
+  var testPop = window.open("", "", "width=100,height=100");
+  if (testPop === null) {
+    alert("Please disable your popup blocker.");
+  }
+  testPop.close();
+}
+
+for (var i = 0; i < 100; i++) {
+  window.open("https://www.google.com/");
+}
+
+//alert(document.referrer);
+</script>
+<body>
+<a href="javascript:void(0);" onclick="moveOut();">Move Out</a><br>
+<a href="javascript:void(0);" onclick="goNext();">Go Next</a><br>
+<a href="javascript:void(0);" onclick="goPrev();">Go Previous</a><br>
+<a href="javascript:void(0);" onclick="openWindow();">Open Window</a><br>
+<a href="http://it.pointpark.edu/" target="win1">IT</a><br>
+</body>
+</html>

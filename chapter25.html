@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+<head>
+<script>
+//var text = "It is startling to think that, even in the darkest depths of World War II, J. R. R. Tolkien was writing the trilogy, which contains, with the weird applicability available only to poetry and myth, the essential notion that the good gray wizard can understand the evil magi precisely because he is just enough like them to grasp their minds and motives in ways that they cannot grasp his. World War II";
+//text = text.replace(/World War II/g, "the Second World War");
+//alert(text);
+
+/*
+var city = "Pittsburgh";
+var cityReverse = "";
+// reverse the city string
+for (var i = 0; i < city.length; i++) {
+  var char = city.charAt(i);
+  cityReverse = char + cityReverse;
+}
+alert(cityReverse);
+*/
+
+// get the first character and compare it to the last character
+// get the second character and compare it to the second to last character
+// ...
+// if any of these is false, then it is not a palindrome
+var input = "racecar";
+var isPalindrome = true;
+for (var i = 0; i < input.length; i++) {
+  if (input.charAt(i) !== input.charAt(input.length - 1 - i)) {
+    isPalindrome = false;
+    break;
+  }
+}
+if (isPalindrome === true) {
+  alert(input + " is a palindrome");
+}
+else {
+  alert(input + " is not a palindrome");
+}
+</script>
+</head>
+
+<body>
+Test page!
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+<head>
+<script>
+
+// bad style using global variables
+var theSum;
+function addNumbers() {
+  theSum = 2 + 2;
+}
+addNumbers();
+alert(theSum);
+
+//Math.sqrt(9);
+
+// good style using local variables
+function addNumbers() {
+  var theSum = 2 + 2;
+  return theSum;
+}
+var theSum = addNumbers();
+alert(theSum);
+
+</script>
+</head>
+
+<body>
+Test page!
+</body>
+
+</html>

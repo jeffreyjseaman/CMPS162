@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+<head>
+<script>
+
+function simulateOnce(contestantStays) {
+  var posOfCar = Math.floor(Math.random() * 3 + 1);
+  var initialGuess = Math.floor(Math.random() * 3 + 1);
+  var doorToOpen = null;
+
+  // the host will open a door
+  if (posOfCar === initialGuess) {
+    // contestant guessed correctly
+    // we can pick any of the other two doors
+    if (posOfCar === 1) {
+      doorToOpen = 2;
+    }
+    else if (posOfCar === 2) {
+      doorToOpen = 3;
+    }
+    else {
+      doorToOpen = 1;
+    }
+  }
+  else {
+    // contestant guessed incorrectly
+    // we can pick only the door with the goat
+    if ((posOfCar === 1 && initialGuess === 2) ||
+        (posOfCar === 2 && initialGuess === 1)) {
+      doorToOpen = 3;
+    }
+    else if ((posOfCar === 1 && initialGuess === 3) ||
+             (posOfCar === 3 && initialGuess === 1)) {
+      doorToOpen = 2;
+    }
+    else {
+      doorToOpen = 1;
+    }
+  }
+
+  //alert("Car is at door " + posOfCar);
+  //alert("Contestant guesses door " + initialGuess);
+  //alert("Host will open door " + doorToOpen);
+
+  if (contestantStays) {
+    // contestant did not switch
+    // check if we won
+    if (posOfCar === initialGuess) {
+      //alert("DidNotSwitch: We won!");
+      return true;
+    }
+    else {
+      //alert("DidNotSwitch: We lost!");
+      return false;
+    }
+  }
+  else {
+    // contestant did switch
+    var newPick = null;
+    if ((doorToOpen === 1 && initialGuess === 2) ||
+        (doorToOpen === 2 && initialGuess === 1)) {
+      newPick = 3;
+    }
+    else if ((doorToOpen === 1 && initialGuess === 3) ||
+             (doorToOpen === 3 && initialGuess === 1)) {
+      newPick = 2;
+    }
+    else {
+      newPick = 1;
+    }
+    // check if we won
+    if (posOfCar === newPick) {
+      //alert("DidSwitch: We won!");
+      return true;
+    }
+    else {
+      //alert("DidSwitch: We lost!");
+      return false;
+    }
+  }
+}
+
+// not switching
+var numberOfWins = 0;
+for (var i = 0; i < 1000; i++) {
+  if (simulateOnce(false)) {
+    numberOfWins++;
+  }
+}
+alert(numberOfWins / 1000);
+
+// switching
+var numberOfWins = 0;
+for (var i = 0; i < 1000; i++) {
+  if (simulateOnce(false)) {
+    numberOfWins++;
+  }
+}
+alert(numberOfWins / 1000);
+
+</script>
+</head>
+
+<body>
+Test page!
+</body>
+
+</html>

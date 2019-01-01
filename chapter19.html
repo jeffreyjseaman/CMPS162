@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+<script>
+
+var numberOfIterations = 0;
+for (var i = 0; i <= 4; i++) {
+  numberOfIterations++;
+}
+alert(numberOfIterations);
+
+numberOfIterations = 0;
+for (var i = 0; i < 5; i++) {
+  numberOfIterations++;
+}
+alert(numberOfIterations);
+
+var cleanestCities = ["Cheyenne", "Santa Fe", "Tucson", "Great Falls", "Honolulu", "Pittsburgh"];
+
+var foundCity = false;
+for (var i = 0; i < cleanestCities.length; i++) {
+  if (cleanestCities[i] === "Santa Fe") {
+    foundCity = true;
+    break;
+  }
+}
+
+if (foundCity === true) {
+  alert("We found it!");
+}
+else {
+  alert("We did not find it!");
+}
+
+</script>
+</head>
+
+<body>
+Test page!
+</body>
+
+</html>

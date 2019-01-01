@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+
+<head>
+<script>
+
+/*
+// check if username has been set
+var username = localStorage.getItem("username");
+if (username === null) {
+  // username has not been set, so ask
+  username = prompt("Give me your username:");
+  // save the username to storage
+  localStorage.setItem("username", username);
+}
+// display the username
+alert(username);
+*/
+
+/*
+var numbers = [23, 45, 12, 4, 34];
+var numbersAsAString = JSON.stringify(numbers);
+localStorage.setItem("randomnumbers", numbersAsAString);
+*/
+
+/*
+var tmpstr = localStorage.getItem("randomnumbers");
+alert(JSON.parse(tmpstr));
+*/
+
+if (localStorage.getItem("numbers") === null) {
+  var numbers = [];
+  for (var i = 0; i < 5; i++) {
+    numbers.push(Number(prompt("Give me a number:")));
+  }
+  localStorage.setItem("numbers", JSON.stringify(numbers));
+}
+
+var numbers = JSON.parse(localStorage.getItem("numbers"));
+alert(numbers);
+var sum = 0;
+for (var i = 0; i < numbers.length; i++) {
+  sum += numbers[i];
+}
+var average = sum / numbers.length;
+alert(average);
+
+</script>
+</head>
+
+<body>
+Test page!
+</body>
+
+</html>

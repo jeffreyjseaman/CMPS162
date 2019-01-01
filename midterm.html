@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+
+<head>
+<script>
+
+// (20 points) Write a program that finds the
+// smallest number in an array. For example,
+// the answer for [23, 54, 3, 6, 4, 46] should
+// be the number 3.
+
+// create the array
+var numbers = [23, 54, 3, 6, 4, 46];
+var smallest = numbers[0];
+
+// loop through the array
+for (var i = 0; i < numbers.length; i++) {
+  // get the element from the array
+  var elt = numbers[i];
+  // check if the element is the smallest
+  if (elt < smallest) {
+    // we found a new smallest element
+    smallest = elt;
+  }
+}
+alert(smallest);
+
+// (20 points) Create a program that prompts the user
+// for a string, reverses it, and shows the result to
+// the user through an alert.
+var str = "Hello World!";
+var reversestr = "";
+
+// take the first character (H) and create a new string
+// reversestr = "H";
+
+// get the second character (e) and prepend to the string
+// reversestr = "eH";
+
+for (var i = 0; i < str.length; i++) {
+  var chr = str.charAt(i);
+  reversestr = chr + reversestr;
+}
+
+// (20 points) Make a program that does the following:
+// (1) Use a prompt to obtain the birth year of the user.
+// (2) Use a prompt to obtain the birth month of the user.
+// (3) Use a prompt to obtain the birth day of the user.
+// (4) Calculate how old the user is in days.
+var today = new Date();
+var birthdate = new Date();
+birthdate.setFullYear(1982);
+birthdate.setMonth(5);
+birthdate.setDate(26);
+//(today.getTime() - birthdate.getTime())
+// (5) Show the result to the user.
+
+// (20 points) Define and implement a function named
+// everySecondElement that takes as input an array and
+// returns every second element in a new array. For
+// example, everySecondElement([1, 2, 3, 4, 5, 6])
+// should return [2, 4, 6].
+// Hint: one solution uses the % operator.
+
+function everySecondElement(arr) {
+  var newarray = [];
+  for (var i = 0; i < arr.length; i++) {
+    if (i % 2 !== 0) {
+      var elt = arr[i];
+      newarray.push(elt);
+    }
+  }
+  return newarray;
+}
+everySecondElement([1, 2, 3, 4, 5, 6]);
+
+// (20 points) First, write function that translates
+// one English word to Pig Latin. English is translated
+// to Pig Latin by taking the first letter of a word,
+// moving it to the end of the word, and adding 'ay'.
+// Here are some examples: 'the' becomes 'hetay', 'quick'
+// becomes 'uickqay', 'brown' becomes 'rownbay', and 'fox'
+// becomes 'oxfay'. Second, use the function to translate
+// a complete sentence to Pig Latin.
+
+function toPigLatin(word) {
+  // take the first letter
+  var firstLetter = word.charAt(0);
+
+  // extract the rest of the word
+  var rest = word.substring(1);
+
+  // moving it to the end of the word, and adding 'ay'
+  var piglatin = rest + firstLetter + "ay";
+
+  return piglatin;
+}
+
+toPigLatin("quick");
+toPigLatin("brown");
+toPigLatin("fox");
+
+var sentence = "the quick brown fox";
+// get the index of the first space (in the sentence)
+var idx = sentence.indexOf(" ");
+// extract the word
+var word = sentence.slice(0, idx);
+
+</script>
+</head>
+
+<body>
+Test page!
+</body>
+
+</html>

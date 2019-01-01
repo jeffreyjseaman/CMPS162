@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Module 13</title>
+<script>
+function checkForLastName() {
+  // retrieve lastNameField
+  var elt = document.getElementById("lastNameField");
+  // retrieve the content of the lastNameField
+  var lastName = elt.value;
+  // check whether it has any value
+  if (lastName === "") {
+    // notify the user
+    alert("Please enter your last name.");
+    // focus on the lastNameField
+    elt.focus();
+    elt.style.background = "yellow";
+    // return false if no value
+    return false;
+  }
+  // return true if it has value
+  return true;
+}
+
+function checkForSelection(selectID) {
+  var elt = document.getElementById(selectID);
+  var selectedIndex = elt.selectedIndex;
+  if (selectedIndex === 0) {
+    alert("Please select a state.");
+    return false;
+  }
+}
+
+function validateRadios() {
+  var radios = document.getElementsByName("r1");
+  for (var i = 0; i < radios.length; i++) {
+    if (radios[i].checked) {
+      return true;
+    }
+  }
+  alert("Please check one.");
+  return false;
+}
+
+function validateZIP() {
+  var elt = document.getElementById("zip");
+  var zipcode = elt.value;
+  if (zipcode.length != 5) {
+    alert("Please enter a 5-digit code.");
+    return false;
+  }
+  for (var i = 0; i < zipcode.length; i++) {
+    if (isNaN(parseInt(zipcode[i]))) {
+      alert("This is not a number: " + zipcode[i]);
+      return false;
+    }
+  }
+}
+// "this is an email address".indexOf(" ") => 4
+// "mvoortman@pointpark.edu".indexOf(" ") => -1
+</script>
+<body>
+  <form onsubmit="return checkForLastName();">
+    Please enter your last name.<br>
+    <input type="text" id="lastNameField">
+    <input type="submit" value="Submit Form">
+  </form>
+  <form onsubmit="return checkForSelection('states');">
+    <select id="states">
+      <option value="" selected="selected">
+        SELECT A STATE
+      </option>
+      <option value="AL">Alabama</option>
+      <option value="AK">Alaska</option>
+      <option value="AZ">Arizona</option>
+      <option value="AR">Arkansas</option>
+    </select>&nbsp;&nbsp;
+    <input type="submit" value="Submit Form">
+  </form>
+  <form onsubmit="return validateRadios();">
+    <input type="radio" name="r1" value="cat">Cat<br>
+    <input type="radio" name="r1" value="bat">Bat<br>
+    <input type="radio" name="r1" value="hat">Hat<br>
+    <input type="submit" value="Submit Form">
+  </form>
+  <form onsubmit="return validateZIP();">
+    Please enter your zip code.<br>
+    <input type="text" id="zip">
+    <input type="submit" value="Submit Form">
+  </form>
+</body>
+</html>

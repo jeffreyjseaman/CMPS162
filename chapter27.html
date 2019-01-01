@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+<head>
+<script>
+
+var randomNumber = Math.random();
+alert(Math.floor(randomNumber * 6) + 1);
+alert(Math.ceil(randomNumber * 6));
+
+// write a program that generates a 1000 die rolls
+// and then calculate the average
+var amountOfRolls = 100000;
+var sum = 0;
+for (var i = 0; i < amountOfRolls; i++) {
+  sum += Math.floor(Math.random() * 6) + 1;
+}
+var average = sum / amountOfRolls;
+alert(average);
+
+</script>
+</head>
+
+<body>
+Test page!
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+
+<head>
+<script>
+
+var price = 9.95;
+var taxRate = 6.5 / 100;
+var total = price + (price * taxRate);
+
+// 10.59675 * 100
+// 1059.675 round
+// 1060 / 100
+// 10.60
+
+var roundedTotal = Math.round(total * 100) / 100;
+alert(roundedTotal);
+
+</script>
+</head>
+
+<body>
+Test page!
+</body>
+
+</html>

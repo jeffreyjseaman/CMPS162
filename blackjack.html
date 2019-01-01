@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Blackjack</title>
+<script>
+
+function Card(suit, number) {
+  // 0 === hearts
+  // 1 === diamonds
+  // 2 === spades
+  // 3 === clubs
+  // 1 === ace
+  // 2 === 2
+  // ...
+  // 10 === 10
+  // 11 === jack
+  // 12 === queen
+  // 13 === king
+  this.suit = suit;
+  this.number = number;
+}
+
+Card.prototype.toString = function() {
+  var str = "";
+  // print the number
+  if (this.number === 1) {
+    str += "Ace";
+  }
+  else if (this.number === 11) {
+    str += "Jack";
+  }
+  else if (this.number === 12) {
+    str += "Queen";
+  }
+  else if (this.number === 13) {
+    str += "King";
+  }
+  else {
+    str += this.number;
+  }
+  str += " of ";
+  // add suit
+  if (this.suit === 0) {
+    str += "Hearts";
+  }
+  else if (this.suit === 1) {
+    str += "Diamonds";
+  }
+  else if (this.suit === 2) {
+    str += "Spades";
+  }
+  else if (this.suit === 3) {
+    str += "Clubs";
+  }
+  return str;
+};
+
+Card.prototype.getValue = function() {
+  if (this.number === 1) {
+    return 1;
+  }
+  else if (this.number === 11 ||
+           this.number === 12 ||
+           this.number === 13) {
+    return 10;
+  }
+  else {
+    return this.number;
+  }
+};
+
+function Deck() {
+  this.cards = [];
+  // create all 52 cards
+  for (var suit = 0; suit <= 3; suit++) {
+    for (var number = 1; number <= 13; number++) {
+      this.cards.push(new Card(suit, number));
+    }
+  }
+}
+
+Deck.prototype.draw = function() {
+  // select a card at random
+  var numCards = this.cards.length;
+  var cardIdx = Math.floor(Math.random() * numCards);
+  // select the card
+  var card = this.cards[cardIdx];
+  // remove that card from the deck
+  this.cards.splice(cardIdx, 1);
+  // return the card
+  return card;
+};
+
+var deck = new Deck();
+var cardsDrawn = [];
+cardsDrawn.push(deck.draw());
+cardsDrawn.push(deck.draw());
+var total = 0;
+for (var i = 0; i < cardsDrawn.length; i++) {
+  alert(cardsDrawn[i].toString());
+  total += cardsDrawn[i].getValue();
+}
+alert("Total value: " + total);
+while (true) {
+  var answer = prompt("Do you want another card?");
+  if (answer === "yes") {
+    var card = deck.draw();
+    cardsDrawn.push(card);
+    alert(card.toString());
+    total += card.getValue();
+    alert("New value is: " + total);
+    if (total === 21) {
+      alert("You win!");
+      break;
+    }
+    else if (total > 21) {
+      alert("You lose!");
+      break;
+    }
+  }
+  else {
+    alert("The final value is " + total);
+    break;
+  }
+}
+
+//deck.shuffle();
+//var card = deck.draw();
+//alert(card.toString()); // show suit and number/face
+//alert(card.getValue()); // useful to determine we're not over 21
+// etc. (e.g., ask if drawing another card)
+</script>
+<body>
+</body>
+</html>

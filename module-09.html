@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Module 09</title>
+<style>
+.hidden {
+  display: none;
+}
+.bigfont {
+  font-size: 200%;
+  border: 5px solid red;
+  background-color: lightgreen;
+}
+.boldfont {
+  font-weight: bold;
+}
+</style>
+<script>
+// javascript goes here
+function expandLoris() {
+  var expandedParagraph = "kjdshfs <b>skdjhfksdjf</b> sdkjfhds sldkfj sdlkfsdfjkh skdjfhsdlkj hsdjkhf lksjdfgh kljsdfhg kjdfshglk dfhsgkj dsflkjgh djkfshg lkdjfshg dkjfglkdjsfhgkjdfs jkdfshg lkjdfshg lkjdfhg kjldsfgkjdfsglkjdf kgjdfh glkjhdfs gkjdhfsg lkjdsfglkjh dfslkjghdfg <ul><li>CMPS 160</li><li>CMPS 161</li><li>CMPS 162</li><li>CMPS 163</li></ul>";
+  // retrieve element slowLoris from html
+  var elt = document.getElementById("slowLoris");
+  // we change the content of the paragraph
+  elt.innerHTML = expandedParagraph;
+}
+
+function makeInvisible() {
+  var elt = document.getElementById("ugly");
+  elt.width = 50;
+  //elt.height = 150;
+  //elt.className = "hidden";
+  //elt.className += " bigfont";
+}
+
+// create two paragraphs and put random text in it
+// create a link and attach an onclick event
+// swap the content of the paragraphs when clicked
+
+function swap() {
+  // get content from first paragraph
+  var paragraph1 = document.getElementById("paragraph1");
+  var innerhtml1 = paragraph1.innerHTML;
+  // get content from second paragraph
+  var paragraph2 = document.getElementById("paragraph2");
+  var innerhtml2 = paragraph2.innerHTML;
+  // set new content for first paragraph
+  paragraph1.innerHTML = innerhtml2;
+  // set new content for second paragraph
+  paragraph2.innerHTML = innerhtml1;
+
+  paragraph1.style.border = "5px solid blue";
+  paragraph1.style.fontFamily = "Helvetica";
+}
+
+function changeImage() {
+  var elt = document.getElementById("before");
+  if (elt.src.indexOf("pointpark.jpg") >= 0) {
+    elt.src = "banner.jpg";
+  }
+  else {
+    elt.src = "pointpark.jpg";
+  }
+}
+
+function doubleTextSize() {
+  var div = document.getElementById("thisisadiv");
+  var par = div.getElementsByTagName("p");
+  for (var i = 0; i < par.length; i++) {
+    par[i].style.fontSize = "2em";
+  }
+}
+
+function swapColors() {
+  var div1 = document.getElementById("div1");
+  var div2 = document.getElementById("div2");
+  var backgroundColor1 = div1.style.backgroundColor;
+  var backgroundColor2 = div2.style.backgroundColor;
+  div1.style.backgroundColor = backgroundColor2;
+  div2.style.backgroundColor = backgroundColor1;
+}
+// elt.style.backgroundColor
+
+</script>
+</head>
+<body>
+
+<h1>Chapter 51</h1>
+<p id="slowLoris" class="bigfont boldfont">dfs lskjdf kljshdaf kjhfd ksajhfd
+  klsdjf aklsjdhf klsajdhsdfshalkf sdsdf sdfsdfs
+  dfkjskdjf <a href="javascript:void(0);"
+               onclick="expandLoris();">
+             <em>Click here for more.</em>
+            </a></p>
+
+<h1>Chapter 52</h1>
+<img id="ugly"
+     src="pointpark.jpg"
+     width="200px"
+     onclick="makeInvisible();">
+
+<p id="paragraph1">Some text.</p>
+<p id="paragraph2">Some other text.</p>
+<a href="javascript:void(0);" onclick="swap();">Swap</a>
+
+<h1>Chapter 53</h1>
+<img id="before"
+     src="pointpark.jpg"
+     width="200px"
+     onclick="changeImage();">
+
+<h1>Chapter 56</h1>
+<a href="javascript:void(0);" onclick="doubleTextSize();">Double Text Size</a>
+
+<h1>Chapter 57</h1>
+<div id="thisisadiv">
+  <p>This is the first paragraph.</p>
+  <p>This is the second paragraph.</p>
+</div>
+
+<h1>Exercise</h1>
+<div id="div1"
+     style="background-color:yellow;"
+     onclick="swapColors();">
+  Hello
+</div>
+<div id="div2"
+     style="background-color:green;"
+     onclick="swapColors();">
+  World
+</div>
+
+</body>
+</html>

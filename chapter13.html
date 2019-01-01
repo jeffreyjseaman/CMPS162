@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+
+<head>
+<script>
+
+var comesToClass = "yes";
+var studiesAtHome = "no";
+
+// if both yes, then grade is A
+// if one is yes, then grade is B
+// if neither is yes, then grade is C
+
+if (comesToClass === "yes" && studiesAtHome === "yes") {
+  alert("A");
+}
+else if (comesToClass === "yes" || studiesAtHome === "yes") {
+  alert("B");
+}
+else {
+  alert("C");
+}
+
+</script>
+</head>
+
+<body>
+Test page!
+</body>
+
+</html>

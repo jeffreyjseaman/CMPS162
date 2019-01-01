@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example Question IV</title>
+<script>
+function validatePhoneNumber() {
+  var phoneNumberField = document.getElementById("phoneNumberField");
+  var phoneNumber = phoneNumberField.value;
+  var message = "The phone number is correct!";
+  if (phoneNumber.length !== 12) {
+    message = "The phone number is of incorrect length!"
+  }
+  // insert other checks
+  // check for dashes
+  // check if each digit is a number
+  var statusDiv = document.getElementById("statusDiv");
+  statusDiv.innerHTML = message;
+}
+</script>
+<body>
+  <input type="text" id="phoneNumberField">
+  <input type="button" value="Check" onclick="validatePhoneNumber();">
+  <br><br>
+  <div id="statusDiv">
+    Please enter a phone number and press Check!
+  </div>
+</body>
+</html>

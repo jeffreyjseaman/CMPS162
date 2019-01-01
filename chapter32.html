@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+
+<head>
+<script>
+
+var today = new Date();
+var doomsday = new Date("June 30, 2035");
+// timestamp for totay
+var msToday = today.getTime();
+// timestamp for doomsday
+var msDoomsday = doomsday.getTime();
+// milliseconds until doomsday
+var msDiff = msDoomsday - msToday;
+var seconds = msDiff / 1000;
+var minutes = seconds / 60;
+var hours = minutes / 60;
+var day = hours / 24;
+alert(Math.floor(day));
+
+var d = new Date("July 21, 1983 13:25:00");
+alert(d);
+
+</script>
+</head>
+
+<body>
+Test page!
+</body>
+
+</html>

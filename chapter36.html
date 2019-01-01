@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+<script>
+
+function sum(x, y, z) {
+  alert(z + (2 * x) + y);
+}
+
+sum(10, 2, "hi");
+//alert(z);
+
+function greetUser(greeting, username) {
+  alert(greeting + ", " + username + "!");
+}
+
+var usernames = ["Mark", "Joe", "Jane"];
+for (var i = 0; i < usernames.length; i++) {
+  //alert("Hello " + usernames[i] + "!");
+  greetUser("Hello", usernames[i]);
+}
+
+// ...
+
+for (var i = 0; i < usernames.length; i++) {
+  //alert("Bye " + usernames[i] + "!");
+  greetUser("Bye", usernames[i]);
+}
+
+greetUser("GoodBye", "Mark");
+
+</script>
+</head>
+
+<body>
+Test page!
+</body>
+
+</html>

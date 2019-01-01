@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+
+<head>
+<title>Module 08</title>
+<script>
+function test() {
+  var input = prompt("Give me your name: ");
+  alert("Your name is " + input);
+}
+
+function checkAddress(fieldId) {
+  var element = document.getElementById(fieldId);
+  var email = element.value;
+  if (email === "") {
+    alert("Email address required");
+  }
+  else if (email.indexOf("@") === -1) {
+    alert("No @ sign found");
+  }
+  else {
+    element.value = "Correct!";
+  }
+}
+
+function dollarsToEuros() {
+  // getting the dollar value out of the field
+  var dollarString = document.getElementById("dollars").value;
+  var dollars = Number(dollarString);
+  var euros = dollars / 1.1;
+
+  // setting the dollar value to the field
+  document.getElementById("euros").value = euros;
+}
+
+function eurosToDollars() {
+  // getting the dollar value out of the field
+  var eurosString = document.getElementById("euros").value;
+  var euros = Number(eurosString);
+  var dollars = euros * 1.1;
+
+  // setting the dollar value to the field
+  document.getElementById("dollars").value = dollars;
+}
+
+</script>
+</head>
+
+<body>
+Hello, I am Mark.<br>
+
+<a href="javascript:void(0)"
+   onmouseover="this.style.color='green';"
+   onmouseout="this.style.color='blue';">
+   <img src="pointpark.jpg" width="200px"><br>
+   Click Here
+</a>
+<br>
+
+<img src="pointpark.jpg"
+     width="200px"
+     onclick="alert('image click')">
+<br>
+
+<input type="button"
+       value="Click"
+       onclick="alert('Hello World!');">
+<br>
+
+<form onsubmit="checkAddress('email'); return false;">
+Email:<br>
+<input type="text" id="email">
+<input type="submit" value="Submit">
+<br>
+</form>
+<br>
+
+<table>
+  <tr>
+    <td>Dollars:</td>
+    <td><input type="text"
+               id="dollars"
+               onblur="dollarsToEuros();"></td>
+  </tr>
+  <tr>
+    <td>Euros:</td>
+    <td><input type="text"
+               id="euros"
+               onblur="eurosToDollars();"></td>
+  </tr>
+</table>
+
+</body>
+
+</html>

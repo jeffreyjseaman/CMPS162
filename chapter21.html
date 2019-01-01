@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+<script>
+
+var city = "SANTA FE";
+var lowerCaseCity = city.toLowerCase();
+var cleanestCities = ["cheyenne", "santa fe", "tucson", "great falls", "honolulu"];
+
+var foundCity = false;
+for (var i = 0; i < cleanestCities.length; i++) {
+  if (cleanestCities[i] === lowerCaseCity) {
+    foundCity = true;
+    break;
+  }
+}
+
+if (foundCity === true) {
+  alert(city + " is clean!");
+}
+else {
+  alert(city + " is not clean!");
+}
+
+</script>
+</head>
+
+<body>
+Test page!
+</body>
+
+</html>
